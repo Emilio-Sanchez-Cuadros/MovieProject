@@ -4,6 +4,9 @@ var path = require('path');
 const app = express();
 const { mongoose } = require('./db.js');
 const bodyParser = require('body-parser');
+var cors = require('cors')
+
+app.use(cors())
 
 
 // Settings

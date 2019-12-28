@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6"><img
+            style="width: 50vw;
+          height: 50vh;"
+            src="https://cdn3.f-cdn.com/contestentries/1483263/26039261/5c988ddb8ee9a_thumb900.jpg"
+          /></div>
+        <div class="col-4"></div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+      <!--ITERANDO CARDS CON SUS SECCIONES QUE VIENEN DE APP.COMPONENTS-->
+      <section
+        *ngFor="let section of sections"
+        class="col-md-12 text-center mb-3"
+      >
+        <h2 class="section-title">{{ section.Status }}</h2>
+        <div class="row">
+          <div *ngIf="section.Status == 'Favorita'"></div>
+          <div *ngFor="let movie of movies" class="col-md-4">
+            <app-card ></app-card> <!--AQUI LE DICE "TE MANDO MOVIES-->
+          </div>
+        </div>
+        <div *ngIf="section.Status == 'Vista'"></div>
+        <div *ngFor="let i of section.cards" class="col-md-4"></div>
+        <app-card></app-card>
+      </section>
+    </div>
+  </div>
+

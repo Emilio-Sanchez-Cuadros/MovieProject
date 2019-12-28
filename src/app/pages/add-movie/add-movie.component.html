@@ -1,0 +1,44 @@
+<form #movieForm="ngForm" (ngSubmit)="addMovie(movieForm)">
+  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="movieService.selectedMovie._id">
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Título</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1"
+      name="title" #title="ngModel" [(ngModel)]="movieService.selectedMovie.title">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Género</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1"
+      name="genre" #genre="ngModel" [(ngModel)]="movieService.selectedMovie.genre">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Status</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1"
+      name="status" #status="ngModel" [(ngModel)]="movieService.selectedMovie.status">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Poster Link</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1"
+      name="poster" #poster="ngModel" [(ngModel)]="movieService.selectedMovie.poster">
+    </div>
+
+    <!-- HACER UN SELECT PARECE SER MEDIO EXTRAÑO - LO HAGO SIN SELECT Y DESPUES LO VEMOS
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Género</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>Drama</option>
+        <option>Historia</option>
+        <option>FIcción</option>
+      </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Status</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>Vista</option>
+          <option>Pendiente</option>
+          <option>Favorita</option>
+        </select>
+      </div>
+      -->
+<button>Agregar Pelicula</button>
+<button (click)="resetForm(movieForm)">Clean</button>
+  </form>

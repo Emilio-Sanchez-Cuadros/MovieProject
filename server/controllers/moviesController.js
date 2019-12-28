@@ -14,6 +14,7 @@ moviesController.getMovies = async (req, res) => {
 }
 
 moviesController.createMovie = async (req, res) => {
+    
     const movie = new movies(req.body);
 
     movies.title = req.body.title;

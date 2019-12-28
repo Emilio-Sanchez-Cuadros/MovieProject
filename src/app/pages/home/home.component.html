@@ -1,0 +1,33 @@
+<div class="jumbotron">
+  <h1 class="display-4">你好!</h1>
+  <p class="lead">
+    美造不的力藥家，險後藥般三統完，燈洋界！了好總助西結程利……樣人媽來，最開支如關品算文麼的過叫種，看品上己知是很放是可善；業球是眼子期一事。頭而地色推應近、…
+  </p>
+  <hr class="my-4" />
+  <p>
+    It uses utility classes for typography and spacing to space content out
+    within the larger container.
+  </p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
+
+<div class="container">
+    <div class="row">
+      <!--ITERANDO CARDS CON SUS SECCIONES QUE VIENEN DE APP.COMPONENTS-->
+      <section
+        *ngFor="let section of sections"
+        class="col-md-12 text-center mb-3"
+      >
+        <h2 class="section-title">{{ section.genre }}</h2>
+        <div class="row">
+          <div *ngIf="section.genre == 'Drama'"></div>
+          <div *ngFor="let movie of movies" class="col-md-4">
+            <app-card ></app-card> <!--AQUI LE DICE "TE MANDO MOVIES-->
+          </div>
+        </div>
+        <div *ngIf="section.genre == 'History'"></div>
+        <div *ngFor="let i of section.cards" class="col-md-4"></div>
+        <app-card></app-card>
+      </section>
+    </div>
+  </div>
