@@ -12,7 +12,7 @@ import { IMovie } from 'src/app/models/imovie.model';
 })
 export class AddMovieComponent implements OnInit {
 
-  constructor(private movieService: MoviesService) { }
+  constructor(public movieService: MoviesService) { }
 
   ngOnInit() {
   }
@@ -20,10 +20,19 @@ export class AddMovieComponent implements OnInit {
   addMovie(form: NgForm){
     this.movieService.postMovie(form.value)
     .subscribe(res => {
-      console.log(res)
+      this.resetForm(form);
+      this.getMovieById(res); //NOT YET WORKING
     })
   }
 
+  //NOT YET WORKING
+  getMovieById(results: any){
+    this.movieService.getMovieById(results.movie._id)
+    .subscribe(res=>{
+      console.log(res)
+      alert("Movie added")
+    })
+  }
   //method to reset the form
   resetForm(form?: NgForm){
     if(form){

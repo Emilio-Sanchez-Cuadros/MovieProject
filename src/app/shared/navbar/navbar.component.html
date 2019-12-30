@@ -23,14 +23,14 @@
 
       </ul>
     </div>
-    <div class="nav-item dropdown">
+    <div class="btn-group dropleft">
         <a class="nav-link dropdown-toggle spacing" href="#" id="navbarDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img style="height: 40px; width: 40px" src="https://image.flaticon.com/icons/png/128/53/53117.png">
         </a>
         <div  class="dropdown-menu" aria-labelledby="navbarDropdown">
            <!-- cambiar nombre del link SETTINGS  -->
-            <a class="dropdown-item" [routerLink]="['/users/update/', 1]">Settings</a>
+            <a class="dropdown-item" [routerLink]="['/users']">Admin users</a>
             <div class="dropdown-divider"></div>
             <!-- cambiar nombre del link MY PROFILE -->
             <a class="dropdown-item" [routerLink]="['users/my-profile', 1]" routerLinkActive="active">Mi cuenta</a>

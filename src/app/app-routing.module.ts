@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: "movies", component: HomeComponent},
   {path:"movies/add-movie",  component: AddMovieComponent},
   {path:"login",  component: LoginComponent},
-  {path:"users/update/:id",  component: UserSettingsComponent},
+  {path:"users",  component: UserSettingsComponent},
   {path:"users/my-profile/:id",  component: MyProfileComponent},
   {path:"**", pathMatch: "full", redirectTo: "movies"}
 ];

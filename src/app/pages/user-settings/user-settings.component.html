@@ -1,20 +1,59 @@
-<form>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Nombre de usuario</label>
-      <input type="text" class="form-control" >
+
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <form #userForm="ngForm" (ngSubmit)="updateUser(userForm)">
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="usersService.selectedUser._id">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Nombre de usuario</label>
+          <input type="text" name="username" #username="ngModel" [(ngModel)]="usersService.selectedUser.username" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Contraseña</label>
+            <input type="text" name="password" #password="ngModel" [(ngModel)]="usersService.selectedUser.password" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Película</label>
+            <select name="película" #moviesId="ngModel" [(ngModel)]="usersService.selectedUser.moviesId" class="form-control" >
+              <option *ngFor="let user of usersService.users">{{ user.moviesId }}</option>
+            </select>
+          </div>
+          <!-- <div class="form-group">
+            <label for="exampleFormControlInput1">Repite tu contraseña</label>
+            <input type="text" name="password" #password="ngModel" [(ngModel)]="usersService.selectedUser.password" class="form-control" >
+          </div> -->
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Inserta el link a tu avatar</label>
+            <input type="text" name="avatar" #avatar="ngModel" [(ngModel)]="usersService.selectedUser.avatar" class="form-control" >
+          </div>
+          <button>Guardar</button>
+          <button (click)="resetForm(userForm)">Clean</button>
+      </form>
     </div>
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Contraseña</label>
-        <input type="text" class="form-control" >
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Repite tu contraseña</label>
-        <input type="text" class="form-control" >
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Inserta el link a tu avatar</label>
-        <input type="text" class="form-control" >
-      </div>
-    
-<input type="button" value="Actualiza tus datos">
-  </form>
+    <div class="col-8">
+      <table>
+        <thead>
+        <th>Avatar</th>
+         <th>Name</th>
+         <th>Password</th>
+         <th>Movies</th> 
+          
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of usersService.users">
+            <td><img [src]="user?.avatar" class="imgSize" alt="..." /></td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.moviesId }}</td>
+            <td>
+              <button (click)="editUser(user)" style="width: 70px">Editar</button>
+              <button (click)="deleteUser(user._id)" style="width: 70px">Borrar</button></td>
+              
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+</div>

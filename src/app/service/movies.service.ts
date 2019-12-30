@@ -23,6 +23,10 @@ export class MoviesService {
     return this.http.get(this.URL_API);
   }
 
+  getMovieById(_id: String){
+    return this.http.get(`${this.URL_API}/${_id}`)
+  }
+
   //we need the exact address
   postMovie(Movie: IMovie) {
     return this.http.post(this.URL_API + '/add-movie', Movie);
@@ -33,7 +37,8 @@ export class MoviesService {
     return this.http.put(`${this.URL_API}/${Movie._id}`, Movie);
   }
 
-  deleteMovie(_id: string) {
-    return this.http.delete(`${this.URL_API}/${_id}`);
+  deleteMovie(_id: String) {
+    console.log("entro")
+    return this.http.delete(`${this.URL_API}/delete/${_id}`);
   }
 }

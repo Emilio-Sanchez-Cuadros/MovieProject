@@ -11,23 +11,38 @@
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 
-<div class="container">
-    <div class="row">
-      <!--ITERANDO CARDS CON SUS SECCIONES QUE VIENEN DE APP.COMPONENTS-->
-      <section
-        *ngFor="let section of sections"
-        class="col-md-12 text-center mb-3"
-      >
-        <h2 class="section-title">{{ section.genre }}</h2>
-        <div class="row">
-          <div *ngIf="section.genre == 'Drama'"></div>
-          <div *ngFor="let movie of movies" class="col-md-4">
-            <app-card ></app-card> <!--AQUI LE DICE "TE MANDO MOVIES-->
-          </div>
-        </div>
-        <div *ngIf="section.genre == 'History'"></div>
-        <div *ngFor="let i of section.cards" class="col-md-4"></div>
-        <app-card></app-card>
-      </section>
+<div class="container text-center ">
+  <h2>Drama</h2>
+  <div class="row justify">
+    <div *ngFor="let movie of movieService.movies">
+      <div class="col-4 mt-4 mb-4">
+    <div *ngIf="movie.genre == 'Drama'">
+      <app-card [movie]="movie"></app-card> <!--Aqui mandamos el objeto 'movie' a el componente card-->
     </div>
   </div>
+</div>
+
+</div>
+<h2>Fiction</h2>
+<div class="row justify">
+  <div  *ngFor="let movie of movieService.movies">
+    <div *ngIf="movie.genre == 'Fiction'">
+      <div class="col-4 mt-4 mb-4">
+      <app-card [movie]="movie"></app-card> <!--Aqui mandamos el objeto 'movie' a el componente card-->
+    </div>
+  </div>
+  </div>
+</div>
+<h2>History</h2>
+<div class="row justify">
+  <div  *ngFor="let movie of movieService.movies">
+    <div *ngIf="movie.genre == 'History'">
+      <div class="col-4 mt-4 mb-4">
+      <app-card [movie]="movie"></app-card> <!--Aqui mandamos el objeto 'movie' a el componente card-->
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+
+
