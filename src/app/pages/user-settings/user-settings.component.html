@@ -46,7 +46,7 @@
             <td>{{ user.password }}</td>
             <td>{{ user.moviesId }}</td>
             <td>
-              <button (click)="editUser(user)" style="width: 70px">Editar</button>
+              <button (click)="editUser(user)" [routerLink]="['/users/my-profile', [_id]]" style="width: 70px">Editar</button>
               <button (click)="deleteUser(user._id)" style="width: 70px">Borrar</button></td>
               
           </tr>

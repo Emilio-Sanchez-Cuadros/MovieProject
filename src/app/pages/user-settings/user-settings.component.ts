@@ -31,21 +31,12 @@ export class UserSettingsComponent implements OnInit {
   }
 
   updateUser(form: NgForm){
-    if(form.value._id) {
       this.usersService.putUser(form.value)
       .subscribe(res => {
         this.resetForm(form);
         window.alert("usuario actualizado")
         this.getUsers();
       });
-    } else {
-      this.usersService.postUser(form.value)
-      .subscribe( res => {
-        this.resetForm(form);
-        window.alert("usuario guardado")
-        this.getUsers();
-      })
-    }
    
   }
 
