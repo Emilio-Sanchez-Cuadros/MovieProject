@@ -14,17 +14,22 @@
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Película</label>
-            <select name="película" #moviesId="ngModel" [(ngModel)]="usersService.selectedUser.moviesId" class="form-control" >
-              <option *ngFor="let user of usersService.users">{{ user.moviesId }}</option>
+            <select name="title" #title="ngModel" [(ngModel)]="movieService.selectedMovie.title" class="form-control" >
+              <option *ngFor="let movie of movieService">{{ movie.title }}</option>
+              <option>La mosca</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="exampleFormControlInput1">Inserta el link a tu avatar</label>
+            <label for="exampleFormControlInput1">Peli</label>
+            <input type="text" name="moviesId" #moviesId="ngModel" [(ngModel)]="usersService.selectedUser.moviesId" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Actualizar avatar</label>
             <input type="text" name="avatar" #avatar="ngModel" [(ngModel)]="usersService.selectedUser.avatar" class="form-control" >
           </div>
-          <button>Guardar</button>
-          <button (click)="resetForm(userForm)">Clean</button>
+          <button style="width: 70px">Guardar</button>
       </form>
+      <!-- <button (click)="resetForm()" style="width: 70px">Clean</button> -->
     </div>
     <div class="col-8">
       <table>
@@ -42,7 +47,8 @@
             <td>{{ user.password }}</td>
             <td>{{ user.moviesId }}</td>
             <td>
-              <button (click)="editUser(user)" [routerLink]="['/users/my-profile', [usersService.selectedUser._id]]" style="width: 70px">Editar</button>
+              <button (click)="editUser(user)" style="width: 70px">Editar</button>
+              <button [routerLink]="['/users/my-profile', user._id]" style="width: 70px">Usuario </button>
               <button (click)="deleteUser(user._id)" style="width: 70px">Borrar</button></td>
               
           </tr>

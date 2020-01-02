@@ -15,12 +15,12 @@ usersController.getUsers = async (req, res) => {
 }
 
 usersController.createUser = async (req, res) => {
-    const user = new users(req.body);
-
-    users.username = req.body.username;
-    users.password = req.body.password;
-    users.moviesId = req.body.moviesId;
-    users.avatar = req.body.avatar;
+    const user = new users({
+        username: req.body.username,
+        password: req.body.password,
+        moviesId: req.body.moviesId,
+        avatar: req.body.avatar
+    });
 
     await user.save(); 
     res.json({
