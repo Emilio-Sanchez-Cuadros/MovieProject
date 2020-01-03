@@ -20,6 +20,10 @@ export class UsersService {
     return this.http.get(this.URL);
   }
 
+  getUser(_id: String) {
+    return this.http.get(this.URL + `/my-profile/${_id}`);
+  }
+
   postUser(User: IUser) {
     return this.http.post(this.URL, User);
   }

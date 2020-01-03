@@ -1,4 +1,5 @@
-<form #movieForm="ngForm" (ngSubmit)="addMovie(movieForm)">
+<div class="container-fluid mt-10">
+<form #movieForm="ngForm" (ngSubmit)="addMovie(movieForm)" >
      <div class="form-group">
       <label for="exampleFormControlInput1">Título</label>
       <input type="email" class="form-control" 
@@ -37,5 +38,6 @@
 <button>Agregar Pelicula</button>
 <button (click)="resetForm(movieForm)">Clean</button>
   </form>
+</div>
 
   
